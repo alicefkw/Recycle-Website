@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Re:Ciclo — Pedido realizado!{% endblock %}
+
+{% block conteudo %}
+    <body>
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+
+        <div style="margin-top: 5%;">
+            <h4 class="confirm-text">Encaminharemos por e-mail os detalhes da sua coleta e enquanto isso,<br>
+            <span style="margin-left:5%;">você pode <a href="{% url 'listagem' %}">clicar aqui</a> para ver a lista dos seus pedidos.</h4></span>
+
+            <div style="margin: 3% 0% 0% 39%;">
+                <a href="{% url 'index' %}" class="button-33" role="button" style="margin-left: 7%">Voltar ao início</a>
+            </div>
+        </div>
+    </body>
+</html>
+
+<style>
+    body{
+        font-family: 'Montserrat', sans-serif;
+        background-image: url('https://cdn.discordapp.com/attachments/973439116274462772/1044155814816010320/background.jpg');
+        padding-bottom: 33%;
+    }
+    .confirm-text {
+        padding: 5% 0% 0% 25%;
+        font-size: 24px;
+        font-weight: bold;
+    }
+    .alert {
+        margin: 5% 0% 0% 32%;
+        font-weight: bold;
+    }
+</style>
+{% endblock %}

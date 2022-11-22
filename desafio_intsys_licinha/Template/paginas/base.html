@@ -1,0 +1,111 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="{% static './css/style.css' %}" media="screen"/>
+    <link rel="shortcut icon" href="https://cdn.discordapp.com/attachments/973439116274462772/1044155813687742534/favicon.png" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/f8c59628cb.js" crossorigin="anonymous"></script>
+
+    <title>{% block title %}{% endblock %}</title>
+</head>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+<body>
+    <nav>
+        <img src="https://cdn.discordapp.com/attachments/973439116274462772/1044155814019080192/logo.png" class="logo-area">
+
+        <!-- Muda a cor do texto da página atual com class="current" -->
+        {% if request.resolver_match.url_name == 'instrucoes' %}
+            <a href="{% url 'instrucoes' %}" class="current">Tutorial</a>
+        {% else %}
+            <a href="{% url 'instrucoes' %}">Tutorial</a>
+        {% endif %}
+
+        {% if request.resolver_match.url_name == 'index' %}
+            <a href="{% url 'index' %}" class="current">Início</a>
+        {% else %}
+            <a href="{% url 'index' %}">Início</a>
+        {% endif %}
+
+        {% if request.resolver_match.url_name == 'cadastro_produto' %}
+            <a href="{% url 'cadastro_produto' %}" class="current">Fazer pedido</a>
+        {% else %}
+            <a href="{% url 'cadastro_produto' %}">Fazer pedido</a>
+        {% endif %}
+
+        <!-- Botões de "Deslogar" e "Meus pedidos" inclusos para usuários autenticados -->
+        {% if user.is_authenticated %}
+            <a href="{% url 'sair' %}">Sair</a>
+            
+            {% if request.resolver_match.url_name == 'listagem' %}
+                <a class="ultimo current" href="{% url 'listagem' %}">{{user}} | Meus pedidos</a>
+            {% else %}
+                <a class="ultimo" href="{% url 'listagem' %}">{{user}} | Meus pedidos</a>
+            {% endif %}
+
+        <!-- Botões para login e cadastro para usuários não logados/autenticados -->
+        {% else %}
+            <!-- Muda a cor do texto da página atual com class="current" -->
+            {% if request.resolver_match.url_name == 'entrar' %}
+                <a href="{% url 'entrar' %}" class="current">Entrar</a>
+            {% else %}
+                <a href="{% url 'entrar' %}">Entrar</a>
+            {% endif %}
+            {% if request.resolver_match.url_name == 'registro' %}
+                <a href="{% url 'registro' %}" class="current">Cadastre-se</a>
+            {% else %}
+                <a href="{% url 'registro' %}">Cadastre-se</a>
+            {% endif %}
+        {% endif %}
+        <div class="animation start-home"></div>
+    </nav>
+</body>
+
+{% block conteudo %}
+{% endblock %}
+
+<div id="footer"> <!-- Footer e sua única div interna -->
+    <div id="direitos">
+        <p id="footer-text">2022 RE:CICLO.LTDA</p>
+    </div>
+</div>
+
+<style>
+    #footer{
+        width: 100vw;
+        background-color: #013300;
+        color: #FFFFFF;
+        margin: auto;
+        position: fixed;
+        bottom: 0;
+    }
+    #direitos{
+        margin: auto;
+        color: #9adc44;
+        font-weight: bold;
+    }
+    #footer-text{
+        text-align: center;
+        padding: 5px;
+        transition: 0.5s;
+        transition-timing-function: ease-in-out;
+    }
+    #footer-text:hover{
+        opacity: 86%;
+    }
+</style>

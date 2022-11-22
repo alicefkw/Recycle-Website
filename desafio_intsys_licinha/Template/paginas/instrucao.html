@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Re:Ciclo — Instruções{% endblock %}
+
+{% block conteudo %}
+    <body>
+        <div class="bem-vindo">
+            <div class="row">
+                <div class="col-sm-6" style="margin-left: 2%;">
+                    <p class="titulo">&nbsp;• Instruções<img class="img-titulo" src="https://cdn.discordapp.com/attachments/973439116274462772/1044349567350607892/lamp.png"><br/></p>
+
+                    <p class="subtitulo">&nbsp;&nbsp;&nbsp;
+                        A partir do <i>Re:Ciclo</i> você pode de uma maneira prática e inovadora fazer o melhor descarte dos seus lixos e resíduos!
+                        <br/><br/>&nbsp;&nbsp;&nbsp;
+                        Ao entrar em uma <a href="{% url 'registro' %}">conta</a> criada, <a href="{% url 'cadastro_produto' %}">cadastre</a> seu pedido de coleta nos informando os dados necessários 
+                        e veja sua <a href="{% url 'listagem' %}">lista de pedidos</a>.
+                    </p>
+                </div>
+
+                <div class="container" style="margin-top: 2%;">
+                    <div class="itens-fundo">
+                        <div class="row">
+                            <div class="col-sm">
+                                <a href="{% url 'registro' %}" class="link">
+                                    <img src="https://cdn.discordapp.com/attachments/973439116274462772/1044324452554526821/Mobile-login-Cristina.jpg" class="img"><br/>
+                                    <p class="text-img" style="margin: 2% 0% 0% 42%;">Crie sua conta</p>
+                                </a>
+                            </div>
+
+                            <div class="col-sm">
+                                <a href="{% url 'cadastro_produto' %}" class="link">
+                                    <img src="https://cdn.discordapp.com/attachments/973439116274462772/1044337172033061044/local.png" class="img"><br/>
+                                    <p class="text-img" style="margin: 2% 0% 0% 30%;">Agende já sua coleta de lixo<br/></p>
+                                    <p class="text-img" style="margin: 2% 0% 0% 30%; color: #003300; width: 50%;">— Recolhemos no seu local e data de preferência!</p>
+                                </a>
+                            </div>
+                            
+                            <div class="col-sm">
+                                <a href="{% url 'listagem' %}" class="link">
+                                    <img src="https://cdn.discordapp.com/attachments/973439116274462772/1044474038149468230/49577.jpg" class="img"><br/>
+                                    <p class="text-img" style="margin: 2% 0% 0% 27%;">Veja sua lista de agendamentos<br/></p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+    <style>
+        body {
+            background-image: url('https://cdn.discordapp.com/attachments/973439116274462772/1044155814816010320/background.jpg');
+            font-family: 'Montserrat', sans-serif;
+            padding-bottom: 3%;
+        }
+
+        .img-titulo {
+            margin: 0% 0% 5% 5%;
+            width: 20%;
+            height: auto;
+            max-height: 60%;
+            max-width: 60%;
+        }
+
+        .itens-fundo {
+            background-color: #87d286;
+            padding: 1% 2% 2% 0%;
+            border-radius: 16px;
+            opacity: 0.75;
+            margin-left: 2%;
+            margin-right: 2%;
+        }
+
+        .img {
+            margin: 4% 0% 0% 30%;
+            border-radius: 10px;
+            max-width: 50%;
+            height: auto;
+        }
+        .text-img {
+            color: white;
+        }
+        .link:hover{
+            text-decoration: underline;
+            text-underline-position: under;
+            text-decoration-color: white;
+        }
+    </style>
+{% endblock %}

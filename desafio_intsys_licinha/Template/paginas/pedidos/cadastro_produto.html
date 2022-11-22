@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Re:Ciclo — Fazer pedido{% endblock %}
+
+{% block conteudo %}
+    <body>
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert-center alert alert-{{ message.tags }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+
+        <div style="margin: 3% 25% 0% 25%; padding: 1% 0%; background: rgba(51, 000, 51, .1); border-radius: 10px;">
+            <div style="border-radius: 10px; margin: 10% 15% 10% 15%; background-color: #98FB98; padding: 5% 2% 5% 12%;">
+                <h2>Informe os dados para a coleta</h2>
+                <div style="padding: 5% 0% 0% 25%;">
+                    <form method="post" action="">
+                        {% csrf_token %}
+                        {% for field in form %}
+                            <div>
+                                {{ field.errors }}
+                                {{ field.label_tag }} <p> {{ field }} <p></p>
+                            </div>
+                            {% endfor %}
+                        <button type="submit" class="bn62">Confirmar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+
+    <style>
+        body {
+            background: url("https://cdn.discordapp.com/attachments/973439116274462772/1044518066400280657/Sem_Titulo-1.png") no-repeat fixed;
+            background-size: 100% 100%;
+            font-family: 'Montserrat', sans-serif;
+            padding-bottom: 10%;
+        }
+
+        .alert-center {
+            margin: 2% 0% 0% 40%;
+        }
+    </style>
+{% endblock %}

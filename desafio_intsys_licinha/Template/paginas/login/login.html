@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}Re:Ciclo — Login{% endblock %}
+
+{% block conteudo %}
+    <body>
+        {% if messages %}
+            {% for message in messages %}
+                {% if message.tags == 'error' %}
+                    <div class="on-center alert alert-danger">{{ message }}</div>
+                {% else %}
+                    <div class="on-center alert alert-{{ message.tags }}">{{ message }}</div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+
+        <div style="margin: 4% 25% 20% 25%; padding: 1% 0%; border-radius: 10px; background: rgba(51, 000, 51, .1);">
+            <div style="border-radius: 10px; margin: 10% 15% 10% 10%; background-color: #98FB98; padding: 5% 2% 5% 23%;">
+                <h2 style="padding-left: 20%;">Login</h2>
+                <div style="padding: 7% 0% 0% 10%;">
+                    <form method="post" action="">
+                        {% csrf_token %}
+                        {% for field in form %}
+                            <div>
+                                <div style="color: red; font-weight: bold;">{{ field.errors }}</div>
+                                <span style="padding-left: 15%;">{{ field.label_tag }}</span> <p> {{ field }} <p></p>
+                            </div>
+                        {% endfor %}
+                        <button type="submit" class="bn62">Entrar</button>
+                    </form>
+                </div>
+                <p style="margin-top: 10%;">Ainda não se cadastrou? <a href="{% url 'registro' %}">Crie uma conta</a></p>
+            </div>
+        </div>
+
+    <style>
+        body {
+            background: url("https://cdn.discordapp.com/attachments/973439116274462772/1044518066400280657/Sem_Titulo-1.png") no-repeat fixed;
+            background-size: 100% 100%;
+            padding-bottom: 0.5%;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .on-center {
+            margin: 2% 0% 0% 43%;
+        }
+    </style>
+{% endblock %}

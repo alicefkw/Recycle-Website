@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+*,
+*:before,
+*:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+nav{
+	position: relative;
+	margin: 270px auto 0;
+    margin-top: 0;
+	height: 50px;
+	background: #003300; /* #16A862 */
+	font-size: 0;
+	box-shadow: 0 2px 3px 0 rgba(0,0,0,.1);
+
+    display: flex;
+    gap: 2px;
+}
+nav a{
+	font-size: 15px;
+	/*text-transform: uppercase;*/
+	color: white;
+	text-decoration: none;
+	line-height: 50px;
+	position: relative;
+	z-index: 1;
+	display: inline-block;
+	text-align: center;
+
+    width: 100%;
+    height: 100%;
+    transition: all .2s linear;
+}
+nav a:hover {
+    color: white;
+    text-decoration: none;
+}
+nav a:after{
+    content: "";
+    position: absolute;
+    background-color: #80c000;
+    height: 3px;
+    width: 0;
+    left: 0;
+    bottom: 10px;
+    transition: 0.3s;
+}
+nav a:hover{
+    color: #ffffff;
+}
+nav a:hover:after{
+    width: 100%;
+}
+nav a:nth-child(1){
+	width: 100px;/**/
+}
+nav a:nth-child(2){
+	width: 100px;
+}
+nav a:nth-child(3){
+	width: 90px;
+}
+nav a:nth-child(4){
+	width: 160px;
+}
+nav a:nth-child(5){
+	width: 85px;
+}
+nav a:nth-child(6){
+	width: 150px;
+}
+
+.logo-area {
+    width: 200px;
+    padding: 0px 10px 10px 10px;
+}
+
+.current {
+    color: #80C000;
+}.current:hover {
+    color: #80C000;
+}
+
+.ultimo {
+    position: absolute;
+    right: 0;
+    margin-right: 1%;
+}
+
+.message {
+    left: 10px;
+}
+
+.alert {
+    display: inline-block;
+    margin: 1% 0% 0% 4%;
+}
+.alert-center {
+    margin: 2% 0% 0% 40%;
+}
+
+@keyframes apresentar {
+    from { opacity: 0;}
+    to   { opacity: 1;}
+}
+
+.bem-vindo{
+    width: 100%;
+    max-width: 98vw;
+    padding-top: 3%;
+    margin: auto;
+    padding-bottom: 3%;
+    animation-name: apresentar;  /* Keyframe */
+    animation-duration: 1.5s; /* Tempo para conclusão do keyframe */
+}
+
+.col-sm-6{
+    max-width: 96vw;
+    margin: auto;
+}
+
+.titulo{
+    border-left: solid 7px #9adc44; /* Borda no titulo do lado esquerdo */
+    color: #9adc44;
+    font-weight: bold;
+    font-size: 65px;
+    width: 100%;
+    max-width: 90vw;
+    text-align: left;
+    padding-left: 5%;
+}
+
+.subtitulo {
+    font-size: 18px;
+    text-align: justify;
+    width: 600px;
+    max-width: 70vw;
+    padding-bottom: 2%;
+    margin-left: 5%;
+}
+
+.img_01{
+    margin: auto;
+    max-width: 85vw;
+}
+
+.button-33 {
+    background-color: #c2fbd7;
+    border-radius: 100px;
+    box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
+    color: green;
+    cursor: pointer;
+    display: inline-block;
+    font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+    padding: 7px 20px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 250ms;
+    border: 0;
+    font-size: 16px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}.button-33:hover {
+    box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
+    transform: scale(1.05) rotate(-1deg);
+    color: green;
+}
+
+.bn62 {
+    color: #1cc49d;
+    background-color: #1b2f31;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3em;
+    width: 8em;
+    font-size: large;
+    font-weight: 600;
+    margin: 4% 0% 0% 7%;
+}.bn62:hover {
+    opacity: 0.75;
+    text-decoration: underline;
+}

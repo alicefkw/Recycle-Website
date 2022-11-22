@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Re:Ciclo — Tela Principal{% endblock %}
+
+{% block conteudo %}
+    <body>
+        {% if messages %}
+            {% for message in messages %}
+                {% if message.tags == 'error' %}
+                    <div class="alert alert-danger">{{ message }}</div>
+                {% else %}
+                    <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+        <div class="bem-vindo">
+            <div class="row">
+                <div class="col-sm-6" style="margin-left: 2%;">
+                    <p class="titulo">&nbsp;Boas Vindas<img class="plantinha" src="https://cdn.discordapp.com/attachments/973439116274462772/1044314562725421196/plantinha.png"></p>
+
+                    <p class="subtitulo">&nbsp;&nbsp;&nbsp;
+                        <!--A iniciativa do <img src="https://fontmeme.com/permalink/221121/8d706eb20941ba45d5768f660f7638fe.png" alt="fonte-defonarts" border="0" style="padding-bottom: 2%;">-->
+                        A iniciativa do <i>Re:Ciclo</i> é uma oportunidade para proporcionar um novo <span style="color: #80c000;">ciclo</span> na sua vida e no 
+                        <span style="color: #80c000;">meio ambiente!</span>
+                        <br/><br/>&nbsp;&nbsp;&nbsp;
+                        Entre na nossa legião de heróis, você não precisa de uma capa! Ajude-nos a salvar o mundo com seus pedidos de coleta de lixos e resíduos! <a href="{% url 'registro' %}">Cadastre-se</a> no nosso site 🌎💚
+                    </p>
+                </div>
+
+                <div class="col" style="margin-left: 2%;">
+                    <img class="img_01" src="https://cdn.discordapp.com/attachments/973439116274462772/1044155814413340723/recicle.png">
+                </div>
+            </div>
+
+        </div>
+    </body>
+
+    <style>
+        body {
+            background-image: url('https://cdn.discordapp.com/attachments/973439116274462772/1044155814816010320/background.jpg');
+            padding-bottom: 26%;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .plantinha {
+            margin: 0% 0% 5% 5%;
+            max-height: 60%;
+            max-width: 60%;
+        }
+    </style>
+{% endblock %}
